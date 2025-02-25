@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Google Font for Signature (Freestyle Script) -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url("imgs/bg.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: #e0e0e0;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(26, 26, 26, 0.75);
+      z-index: -1;
+    }
+
+    .profile-pic {
+      position: fixed;
+      top: 100px;
+      left: 650px;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      overflow: hidden;
+      z-index: 3;
+      border: 2px solid #00bcd4;
+      box-shadow: 0 0 15px 5px rgba(0, 188, 212, 0.8);
+      /* Glowing bluish shadow */
+      transition: transform 0.3s ease-in-out;
+      /* Add smooth transition */
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.3);
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .home {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 48px;
+      color: #00bcd4;
+      margin: 0;
+      padding: 0;
+      margin-top: 300px;
+
+
+    }
+
+    .tagline {
+      margin-top: 20px;
+      font-size: 24px;
+      min-height: 30px;
+      position: relative;
+      display: inline-block;
+      color: #00bcd4;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 5px #00bcd4, 0 0 10px #00bcd4;
+      }
+
+      100% {
+        text-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+      }
+    }
+
+    .tagline::after,
+    .tagline::before {
+      content: "";
+      position: absolute;
+      width: 7px;
+      height: 6px;
+      background: #00bcd4;
+      border-radius: 50%;
+      opacity: 0;
+      animation: sparkle 1.5s infinite alternate ease-in-out;
+    }
+
+    @keyframes sparkle {
+      0% {
+        transform: translate(-10px, 0px) scale(0.5);
+        opacity: 0;
+      }
+
+      50% {
+        transform: translate(10px, -10px) scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translate(20px, -5px) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    /* General Section Styles */
+    .section {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px 5px rgba(0, 188, 212, 0.8);
+      background: linear-gradient(rgba(53, 53, 53, 0.7), rgba(33, 33, 33, 0.7)), url("imgs/bg.jpg") no-repeat center center fixed;
+      z-index: 5;
+      opacity: 0;
+      width: 80%;
+      height: 80%;
+      max-width: 800px;
+      color: #e0e0e0;
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    /* Show Section (When clicked) */
+    .section.visible {
+      display: block;
+      opacity: 1;
+      animation: glowBox 1.5s infinite alternate;
+    }
+
+    /* Skills Section */
+    #skills {
+      overflow-y: auto;
+      max-height: 80%;
+      scrollbar-width: thin;
+      scrollbar-color: #00bcd4 rgba(255, 255, 255, 0.2);
+    }
+
+    /* Projects Section */
+    #projects {
+      overflow-y: auto;
+      max-height: 80%;
+      scrollbar-width: thin;
+      scrollbar-color: #00bcd4 rgba(255, 255, 255, 0.2);
+    }
+
+    /* Custom Scrollbar (For Webkit Browsers) */
+    #skills::-webkit-scrollbar,
+    #projects::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #skills::-webkit-scrollbar-track,
+    #projects::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    #skills::-webkit-scrollbar-thumb,
+    #projects::-webkit-scrollbar-thumb {
+      background: #00bcd4;
+      border-radius: 10px;
+    }
+
+    #skills::-webkit-scrollbar-thumb:hover,
+    #projects::-webkit-scrollbar-thumb:hover {
+      background: #0097a7;
+    }
+
+
+    .skills-section {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .skills-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      background: linear-gradient(rgba(80, 79, 79, 0.7), rgba(33, 33, 33, 0.7)), url("imgs/bg.jpg") no-repeat center center fixed;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #00bcd4;
+      /* Same border color for consistency */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill {
+      text-align: center;
+      font-size: 1.5em;
+      /* Smaller icon size */
+      color: #333;
+      transition: transform 0.3s ease;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 50px;
+      /* Fixed size */
+    }
+
+    .skill:hover {
+      transform: scale(1.2);
+    }
+
+    .skill-name {
+      margin-top: 10px;
+      left: 1px;
+      font-size: 0.5em;
+      color: #555;
+    }
+
+    .skills-box h3 {
+      width: 100%;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.5em;
+      color: #e0d8d8;
+    }
+
+    .filter-buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .filter-btn {
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      background-color: #00bcd4;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background-color: #008c9e;
+    }
+
+    .projects-section {
+      display: flex;
+      flex-direction: column;
+      /* Ensures only one box per row */
+      align-items: center;
+      /* Centers the boxes horizontally */
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .projects-box {
+      display: none;
+      /* Initially hidden, will be shown via JS */
+      width: 100%;
+
+      /* Prevents the box from being too wide */
+      text-align: center;
+      justify-content: center;
+      background: linear-gradient(rgba(80, 79, 79, 0.7), rgba(33, 33, 33, 0.7)), url("imgs/bg.jpg") no-repeat center center fixed;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #00bcd4;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+
+    #about h3,
+    h4,
+    p {
+      text-align: left;
+    }
+
+    .menu-button {
+      position: fixed;
+      top: 50%;
+      left: 0;
+      transform: translate(0, -50%);
+      width: 60px;
+      height: 60px;
+      background: #00bcd4;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #1a1a1a;
+      cursor: pointer;
+      z-index: 2;
+      transition: transform 0.3s ease;
+
+    }
+
+    .menu-button:hover {
+      transform: translate(0, -50%) scale(1.1);
+    }
+
+    .menu-items {
+      position: fixed;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 1;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .menu-item {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #00bcd4;
+      cursor: pointer;
+      position: absolute;
+      transition: transform 0.5s ease, opacity 0.3s ease;
+    }
+
+    .menu-item:nth-child(1) {
+      transform: translate(30px, -100px);
+    }
+
+    .menu-item:nth-child(2) {
+      transform: translate(80px, -50px);
+    }
+
+    .menu-item:nth-child(3) {
+      transform: translate(80px, 10px);
+    }
+
+    .menu-item:nth-child(4) {
+      transform: translate(30px, 65px);
+    }
+
+    .menu-item:hover {
+      background: #1a1a1a;
+      color: #00bcd4;
+    }
+
+    .say-hello-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: #00bcd4;
+      border-radius: 25px;
+      color: #1a1a1a;
+      font-size: 18px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+      z-index: 100;
+      box-shadow: 0 0 15px 5px rgba(0, 188, 212, 0.8);
+    }
+
+    .say-hello-button:hover {
+      background: #1a1a1a;
+      color: #00bcd4;
+    }
+
+    /* Small Circular Resume Button */
+    .resume-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background: #00bcd4;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      z-index: 100;
+      box-shadow: 0 0 10px rgba(0, 188, 212, 0.8);
+    }
+
+    .resume-button:hover {
+      background: #1a1a1a;
+      color: #00bcd4;
+      transform: scale(1.1);
+    }
+
+    /* Resume Popup (Initially Hidden) */
+    #resume-popup {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 250px;
+      height: 150px;
+      background: rgba(26, 26, 26, 0.95);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 188, 212, 0.8);
+      z-index: 101;
+      transform: translateY(20px) scale(0.9);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    /* Show Small Resume Preview */
+    #resume-popup.visible {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Expanded Resume */
+    #resume-popup.expanded {
+      width: 60%;
+      height: 80%;
+      left: 50%;
+      bottom: 50%;
+      transform: translate(-50%, 50%) scale(1);
+    }
+
+    /* Resume PDF Viewer */
+    #resume-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Close Button */
+    .close-resume {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: #00bcd4;
+      border: none;
+      color: #1a1a1a;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      text-align: center;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .close-resume:hover {
+      background: #1a1a1a;
+      color: #00bcd4;
+      transform: scale(1.1);
+    }
+
+    /* Zoom Button */
+    .zoom-button {
+      position: absolute;
+      top: 5px;
+      right: 35px;
+      background: #1a1a1a;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .zoom-button:hover {
+      background: #00bcd4;
+      transform: scale(1.1);
+    }
+
+    /* Full Resume View */
+    .full-resume {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 60%;
+      height: 90%;
+      background: rgba(0, 0, 0, 0.9);
+      border-radius: 10px;
+      display: none;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 20px rgba(0, 220, 212, 0.8);
+      z-index: 102;
+    }
+
+    #full-resume iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+
+    /* Close Full Resume */
+    .close-full-resume {
+      position: absolute;
+      top: 10px;
+      right: 19px;
+      background: #4dd3ff;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .close-full-resume:hover {
+      background: #1a1a1a;
+      color: #4dd3ff;
+      transform: scale(1.1);
+    }
+
+    /* Download Button */
+    .download-button {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: #4dd3ff;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 15px rgba(0, 188, 212, 0.8);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .download-button:hover {
+      background: #1a1a1a;
+      color: #00bcd4;
+      transform: scale(1.1);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      #resume-popup.expanded {
+        width: 90%;
+        height: 80%;
+      }
+
+      .full-resume {
+        width: 90%;
+        height: 95%;
+      }
+    }
+
+
+    /* New Sparkle Animation for Menu Items */
+    .menu-item::before {
+      content: "";
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      background: #00bcd4;
+      border-radius: 50%;
+      animation: sparkleMenu 3s infinite alternate ease-in-out;
+    }
+
+    /* Close about */
+    .close-about {
+      position: absolute;
+      top: 10px;
+      right: 19px;
+      background: #4dd3ff;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+    }
+
+    /* Close skills */
+    .close-skills {
+      position: absolute;
+      top: 10px;
+      right: 19px;
+      background: #4dd3ff;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+    }
+
+    /* Close projects */
+    .close-projects {
+      position: absolute;
+      top: 10px;
+      right: 19px;
+      background: #4dd3ff;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+    }
+
+
+    @keyframes sparkleMenu {
+      0% {
+        transform: translate(-20px, 0) scale(0);
+        opacity: 0;
+      }
+
+      50% {
+        transform: translate(20px, -20px) scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translate(40px, 0) scale(0);
+        opacity: 0;
+      }
+    }
+
+    .social-icons {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 100;
+    }
+
+    .social-icons i {
+      font-size: 30px;
+      color: #00bcd4;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons i:hover {
+      color: #baf4f2;
+    }
+
+    /* Media Queries for responsiveness */
+    @media (max-width: 768px) {
+      .signature {
+        font-size: 36px;
+      }
+
+      .tagline {
+        font-size: 18px;
+        min-height: 24px;
+      }
+
+      .profile-pic {
+        width: 60px;
+        height: 60px;
+        top: 10px;
+        left: 10px;
+      }
+
+      .menu-button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+
+      .menu-item {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+
+      .home-button {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+
+      .say-hello-button {
+        padding: 8px 16px;
+        font-size: 16px;
+
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .signature {
+        font-size: 64px;
+      }
+
+      .tagline {
+        font-size: 28px;
+        min-height: 34px;
+      }
+    }
+
+    .filter-buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .filter-btn {
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      background-color: #00bcd4;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background-color: #008c9e;
+    }
+
+    /* Project Section */
+    .projects-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    /* Individual Project Box */
+    .projects-box {
+      width: 100%;
+      max-width: 900px;
+      background: linear-gradient(rgba(80, 79, 79, 0.7), rgba(33, 33, 33, 0.7)), url("imgs/bg.jpg") no-repeat center center fixed;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #00bcd4;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* Left Section: Title & Description */
+    .project-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding-left: 20px;
+    }
+
+    /* Heading */
+    .project-info h3 {
+      font-size: 22px;
+      color: white;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Description Text */
+    .project-info p {
+      font-size: 16px;
+      color: #ddd;
+      margin-bottom: 10px;
+      text-align: left;
+      max-width: 90%;
+    }
+
+    /* GitHub Icon */
+    .project-info a {
+      font-size: 24px;
+      color: white;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .project-info a:hover {
+      color: #00bcd4;
+    }
+
+    /* Video Styling */
+    .projects-box video {
+      width: 40%;
+      max-width: 500px;
+      max-height: 200px;
+      border-radius: 15px;
+      border: 2px solid #00bcd4;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="profile-pic">
+    <img src="imgs/profile.jpg" alt="Profile Picture" />
+  </div>
+
+  <div class="home" id="home">
+    <div class="signature">Muhammad Noman</div>
+    <div class="tagline">I am Data Scientist</div>
+  </div>
+
+  <div class="menu-button" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <div class="menu-items" id="menuItems">
+    <div class="menu-item" onclick="goToHome()">Home</div>
+    <div class="menu-item" onclick="toggleSection('about')">About</div>
+    <div class="menu-item" onclick="toggleSection('skills')">Skills</div>
+    <div class="menu-item" onclick="toggleSection('projects')">Projects</div>
+  </div>
+
+
+  <a class="say-hello-button"
+    href="mailto:your-email@example.com?subject=Hello%20Muhammad%20Noman&body=Hi%20Muhammad%20Noman,">Say Hello</a>
+
+
+  <div class="social-icons">
+    <a href="https://github.com/noman21105" target="_blank">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/muhammad-noman-629524250/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+      target="_blank">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://wa.me/+923233318085" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://x.com/yourusername" target="_blank">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </div>
+
+
+  <!-- Small Resume Button -->
+  <a class="resume-button" onclick="showResumePreview()">
+    <i class="fas fa-file-alt"></i>
+  </a>
+
+  <!-- Resume Preview -->
+  <div id="resume-popup" class="resume-popup" onclick="expandResume()">
+    <iframe id="resume-frame" src="resume.pdf#toolbar=0&navpanes=0&scrollbar=0&page=1"></iframe>
+    <!-- Zoom Button -->
+    <button class="zoom-button" onclick="zoomResume(event)">🔍</button>
+    <button class="close-resume" onclick="shrinkResume(event)">✖</button>
+  </div>
+
+  <!-- Full Resume on Zoom -->
+  <div id="full-resume" class="full-resume">
+    <iframe id="full-resume-frame" src="resume.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+    <button class="download-button" onclick="downloadResume()">⬇</button>
+    <button class="close-full-resume" onclick="closeFullResume()">✖</button>
+  </div>
+
+
+  <!-- Content Section (hidden by default) -->
+  <div class="section" id="about">
+    <h2>About Me</h2>
+    <h3><strong>Muhammad Noman</strong></h3>
+    <h4>Data Scientist | AI & Machine Learning Expert</h4><br>
+    <p><strong>Degree: </strong> BSc. Software Engineering</p>
+    <p><strong>Duration: </strong>August 2022 - May 2026</p>
+    <p><strong>Institue: </strong>University of Engineerng and Technology, Taxila</p>
+    <br><br>
+
+    <button class="close-about" onclick="closeSections()">✖</button>
+  </div>
+
+  <!-- You can add other sections like Skills or Projects, similarly -->
+  <div class="section" id="skills">
+    <h2>Skills</h2>
+    <p>Here are my skills.</p>
+
+    <div class="skills-section">
+
+      <!-- Data Science Skills -->
+      <div class="skills-box">
+        <h3>Data Science</h3>
+        <div class="skill">
+          <i class="fas fa-brain"></i>
+          <div class="skill-name">AI & ML</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-camera-retro"></i>
+          <div class="skill-name">CV</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-comments"></i>
+          <div class="skill-name">NLP</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-robot"></i>
+
+          <div class="skill-name">Chatbots</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-database"></i>
+          <div class="skill-name">Database (SQL)</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-chart-line"></i>
+          <div class="skill-name">Data Analysis</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-cogs"></i>
+          <div class="skill-name">Selenium</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-spider"></i>
+          <div class="skill-name">Web Scraping</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-chart-bar"></i>
+          <div class="skill-name">Power BI</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-pepper-hot"></i>
+          <div class="skill-name">Flask</div>
+        </div>
+      </div>
+
+      <!-- Web Development Skills -->
+      <div class="skills-box">
+        <h3>Web Development</h3>
+        <div class="skill">
+          <i class="fab fa-html5"></i>
+          <div class="skill-name">HTML</div>
+        </div>
+        <div class="skill">
+          <i class="fab fa-css3-alt"></i>
+          <div class="skill-name">CSS</div>
+        </div>
+        <div class="skill">
+          <i class="fab fa-js-square"></i>
+          <div class="skill-name">JavaScript</div>
+        </div>
+        <div class="skill">
+          <i class="fab fa-react"></i>
+          <div class="skill-name">React</div>
+        </div>
+        <div class="skill">
+          <i class="fab fa-node"></i>
+          <div class="skill-name">Node.js</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-leaf"></i>
+          <div class="skill-name">MongoDB</div>
+        </div>
+        <div class="skill">
+          <p style="font-family: 'Calibri', 'Calibri Body', sans-serif; font-size: 17px; ">EXPRESS</p>
+          <i class="fab fa-node"></i>
+        </div>
+      </div>
+
+      <button class="close-skills" onclick="closeSections()">✖</button>
+
+    </div>
+  </div>
+
+  <div class="section" id="projects">
+    <h2>Projects</h2>
+    <p>See my projects.</p>
+
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+      <button class="filter-btn" data-category="all">All</button>
+      <button class="filter-btn" data-category="data-analysis">Data Analysis</button>
+      <button class="filter-btn" data-category="machine-learning">Machine Learning/AI</button>
+      <button class="filter-btn" data-category="computer-vision">Computer Vision</button>
+      <button class="filter-btn" data-category="nlp">NLP</button>
+      <button class="filter-btn" data-category="chatbots">Chatbots</button>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="projects-section">
+
+      <div class="projects-box" data-category="chatbots">
+
+        <!-- Left Section: Icon, Title & Description -->
+        <div class="project-info">
+          <h3>Text-voice Chatbot</h3>
+          <p>Developed a text-voice chatbot that takes text and voice as input and give text and voice answers in
+            output.</p>
+          <a href="https://github.com/noman21105/Chatbot_GPT.git" target="_blank">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+
+        <!-- Right Section: Video -->
+        <video controls>
+          <source src="project_videos\text-voice_chatbot.mp4" type="video/mp4">
+
+        </video>
+
+      </div>
+
+      <!-- Computer Vision Project -->
+      <!-- <div class="projects-box" data-category="computer-vision">
+        <div class="project-header">
+          <a href="https://github.com/your-github-repo" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <h3>Computer Vision</h3>
+        </div>
+        <video controls>
+          <source src="computer-vision-project.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div> -->
+
+      <!-- Data Analysis Project -->
+      <!-- <div class="projects-box" data-category="data-analysis">
+        <div class="project-header">
+          <a href="https://github.com/your-github-repo" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <h3>Data Analysis</h3>
+        </div>
+        <video controls>
+          <source src="data-analysis.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div> -->
+
+      <!-- Machine Learning Project -->
+      <!-- <div class="projects-box" data-category="machine-learning">
+        <div class="project-header">
+          <a href="https://github.com/your-github-repo" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <h3>Machine Learning/AI</h3>
+        </div>
+        <video controls>
+          <source src="machine-learning.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div> -->
+
+      <!-- NLP Project -->
+      <!-- <div class="projects-box" data-category="nlp">
+        <div class="project-header">
+          <a href="https://github.com/your-github-repo" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <h3>NLP</h3>
+        </div>
+        <video controls>
+          <source src="nlp-project.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div> -->
+
+      <!-- Close Button -->
+      <button class="close-about" onclick="closeSections()">✖</button>
+    </div>
+
+
+    <script>
+      let isExpanded = false;
+
+      function showResumePreview() {
+        const resumePopup = document.getElementById('resume-popup');
+        resumePopup.classList.add('visible'); // Show small preview
+      }
+
+      function expandResume() {
+        const resumePopup = document.getElementById('resume-popup');
+
+        if (!isExpanded) {
+          resumePopup.classList.add('expanded'); // Expand to center
+        } else {
+          resumePopup.classList.remove('expanded'); // Shrink back
+        }
+
+        isExpanded = !isExpanded;
+      }
+
+      function shrinkResume(event) {
+        event.stopPropagation(); // Prevent click from triggering expand
+        const resumePopup = document.getElementById('resume-popup');
+        resumePopup.classList.remove('visible'); // Hide preview
+        resumePopup.classList.remove('expanded'); // Reset expansion
+        isExpanded = false;
+      }
+
+      function zoomResume(event) {
+        event.stopPropagation(); // Prevent triggering expand
+
+        // Hide small resume
+        document.getElementById('resume-popup').classList.remove('visible');
+
+        // Show full resume
+        const fullResume = document.getElementById('full-resume');
+        fullResume.style.display = 'block';
+
+        // Disable background scrolling
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeFullResume() {
+        document.getElementById('full-resume').style.display = 'none';
+        document.body.style.overflow = 'auto'; // Enable scrolling again
+      }
+
+      function downloadResume() {
+        const link = document.createElement('a');
+        link.href = 'resume.pdf';
+        link.download = 'resume.pdf';
+        link.click();
+      }
+
+
+      function toggleSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section.style.display === 'none' || section.style.display === '') {
+          section.style.display = 'block'; // Show the section
+        } else {
+          section.style.display = 'none'; // Hide the section
+        }
+      }
+
+      function closeSections() {
+        // Hide all sections when navigating to Home
+        document.getElementById('about').style.display = 'none';
+        document.getElementById('skills').style.display = 'none';
+        document.getElementById('projects').style.display = 'none';
+      }
+
+
+      function goToHome() {
+        // Fade in home section
+        document.getElementById('home').classList.remove('hidden');
+
+        // Hide all other sections
+        document.querySelectorAll('section').forEach(section => {
+          section.classList.remove('active');
+        });
+      }
+
+      // Function to show corresponding section
+      function showSection(sectionId) {
+        // Hide all sections
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => section.classList.remove('visible'));
+
+        // Show the clicked section
+        const selectedSection = document.getElementById(sectionId);
+        selectedSection.classList.add('visible');
+      }
+
+      // Menu Item Click Event Listeners
+      document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('click', () => {
+          showSection(item.textContent.toLowerCase());
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".filter-btn");
+        const projects = document.querySelectorAll(".projects-box");
+
+        buttons.forEach(button => {
+          button.addEventListener("click", function () {
+            const category = this.getAttribute("data-category");
+
+            // Remove active class from all buttons
+            buttons.forEach(btn => btn.classList.remove("active"));
+            this.classList.add("active");
+
+            // Show/hide projects based on category
+            projects.forEach(project => {
+              if (category === "all" || project.getAttribute("data-category") === category) {
+                project.style.display = "flex";
+              } else {
+                project.style.display = "none";
+              }
+            });
+          });
+        });
+
+        // Trigger "All" category by default
+        document.querySelector(".filter-btn[data-category='all']").click();
+      });
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
