@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <title>Muhammad Noman</title>
   <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <!-- Google Font for Signature (Freestyle Script) -->
@@ -848,6 +848,117 @@
       max-height: 200px;
       border-radius: 15px;
       border: 2px solid #00bcd4;
+    }
+
+    @media (max-width: 1024px) {
+      body {
+        background-size: cover;
+        overflow: auto;
+      }
+
+      .profile-pic {
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 150px;
+      }
+
+      .profile-pic:hover {
+        transform: translateX(-50%) scale(1.1);
+      }
+
+      .home {
+        padding: 20px;
+      }
+
+      .signature {
+        font-size: 36px;
+        margin-top: 200px;
+      }
+
+      .tagline {
+        font-size: 20px;
+      }
+
+      .menu-button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+
+      .menu-items {
+        gap: 5px;
+      }
+
+      .menu-item {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+      }
+
+      .say-hello-button,
+      .resume-button {
+        font-size: 14px;
+        padding: 8px 15px;
+        bottom: 10px;
+      }
+
+      .resume-button {
+        width: 40px;
+        height: 40px;
+      }
+
+      .section {
+        width: 90%;
+        height: 90%;
+        padding: 20px;
+        font-size: 1em;
+      }
+
+      .skills-section,
+      .projects-section {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .skills-box {
+        padding: 10px;
+      }
+
+      .skill {
+        font-size: 1.2em;
+        width: 40px;
+        padding: 5px;
+      }
+
+      .projects-box {
+        width: 100%;
+        padding: 15px;
+      }
+
+      #resume-popup {
+        width: 200px;
+        height: 120px;
+      }
+
+      #resume-popup.expanded {
+        width: 90%;
+        height: 80%;
+      }
+
+      .full-resume {
+        width: 90%;
+        height: 80%;
+      }
+
+      .close-resume,
+      .zoom-button,
+      .close-full-resume {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+      }
     }
   </style>
 
