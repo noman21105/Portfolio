@@ -419,113 +419,32 @@ p {
   transform: scale(1.1);
 }
 
-/* Resume Popup (Initially Hidden) */
-#resume-popup {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 250px;
-  height: 150px;
-  background: rgba(26, 26, 26, 0.95);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 15px rgba(0, 188, 212, 0.8);
-  z-index: 101;
-  transform: translateY(20px) scale(0.9);
-  opacity: 0;
-  visibility: hidden;
-  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
-}
-
-/* Show Small Resume Preview */
-#resume-popup.visible {
-  transform: translateY(0) scale(1);
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Expanded Resume */
-#resume-popup.expanded {
-  width: 60%;
-  height: 80%;
-  left: 50%;
-  bottom: 50%;
-  transform: translate(-50%, 50%) scale(1);
-}
-
-/* Resume PDF Viewer */
-#resume-frame {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* Close Button */
-.close-resume {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  background: #00bcd4;
-  border: none;
-  color: #1a1a1a;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  text-align: center;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.close-resume:hover {
-  background: #1a1a1a;
-  color: #00bcd4;
-  transform: scale(1.1);
-}
-
-/* Zoom Button */
-.zoom-button {
-  position: absolute;
-  top: 5px;
-  right: 35px;
-  background: #1a1a1a;
-  border: none;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.zoom-button:hover {
-  background: #00bcd4;
-  transform: scale(1.1);
-}
 
 /* Full Resume View */
 .full-resume {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 60%;
-  height: 90%;
+  width: 47%;
+  height: 95%;
   background: rgba(0, 0, 0, 0.9);
   border-radius: 10px;
   display: none;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 20px rgba(0, 220, 212, 0.8);
   z-index: 102;
+  overflow: hidden;
+
 }
 
 #full-resume iframe {
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  object-fit: contain;
+  /* Ensures the image fits properly */
+  background-color: rgb(0, 0, 0);
+  /* Add a background color for better visibility */
 }
 
 /* Close Full Resume */
@@ -562,8 +481,8 @@ p {
   font-size: 18px;
   cursor: pointer;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -579,107 +498,35 @@ p {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-
-  /* Resume Popup (Initially Hidden) */
-  #resume-popup {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    width: 150px;
-    height: 150px;
-    background: rgba(26, 26, 26, 0.95);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 15px rgba(0, 188, 212, 0.8);
-    z-index: 101;
-    transform: translateY(20px) scale(0.9);
-    opacity: 0;
-    visibility: hidden;
-    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
-  }
-
-  /* Show Small Resume Preview */
-  #resume-popup.visible {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-    visibility: visible;
-  }
-
-  /* Expanded Resume */
-  #resume-popup.expanded {
-    width: 60%;
-    height: 80%;
-    left: 50%;
-    bottom: 50%;
-    transform: translate(-50%, 50%) scale(1);
-  }
-
-  /* Resume PDF Viewer */
-  #resume-frame {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
-
-  /* Full Resume View */
   .full-resume {
-    position: fixed;
-    top: 57%;
     width: 95%;
     height: 50%;
-    background: rgba(0, 0, 0, 0.9);
-    border-radius: 10px;
-    display: none;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 20px rgba(0, 220, 212, 0.8);
-    z-index: 102;
   }
 
   #full-resume iframe {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    object-fit: contain;
+    /* Ensures the image fits properly */
   }
 
-  /* Close Full Resume */
   .close-full-resume {
-    position: absolute;
     top: 10px;
     right: 7px;
-    background: #4dd3ff;
-    border: none;
-    color: white;
     font-size: 12px;
-    cursor: pointer;
-    border-radius: 50%;
     width: 25px;
     height: 25px;
-    text-align: center;
-    transition: background 0.3s ease, transform 0.2s ease;
   }
 
-  /* Download Button */
   .download-button {
-    position: absolute;
     bottom: 10px;
     right: 2px;
-    background: #4dd3ff;
-    border: none;
-    color: white;
     font-size: 16px;
-    cursor: pointer;
-    border-radius: 50%;
     width: 30px;
     height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 15px rgba(0, 188, 212, 0.8);
-    transition: background 0.3s ease, transform 0.2s ease;
   }
-
 }
+
 
 
 /* New Sparkle Animation for Menu Items */
@@ -796,7 +643,7 @@ p {
     width: 190px;
     height: 190px;
     top: 80px;
-    left: 120px;
+    left: 100px;
   }
 
   .menu-button {
@@ -894,9 +741,9 @@ p {
 
 /* Individual Project Box */
 .projects-box {
-  width: 90%;
+  width: 95%;
   max-width: 900px;
-  background: linear-gradient(rgba(80, 79, 79, 0.7), rgba(33, 33, 33, 0.7)), url("imgs/bg.jpg") no-repeat center center fixed;
+  background: linear-gradient(rgba(80, 79, 79, 0.7), rgba(33, 33, 33, 0.7)), no-repeat center center fixed;
   padding: 20px;
   border-radius: 10px;
   border: 2px solid #00bcd4;

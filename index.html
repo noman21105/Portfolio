@@ -9,11 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <!-- Google Font for Signature (Freestyle Script) -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
   <link rel="stylesheet" href="./style.css">
-
 </head>
 
 <body>
@@ -37,10 +34,8 @@
     <div class="menu-item" onclick="toggleSection('projects')">Projects</div>
   </div>
 
-
   <a class="say-hello-button"
     href="mailto:your-email@example.com?subject=Hello%20Muhammad%20Noman&body=Hi%20Muhammad%20Noman,">Say Hello</a>
-
 
   <div class="social-icons">
     <a href="https://github.com/noman21105" target="_blank">
@@ -58,19 +53,10 @@
     </a>
   </div>
 
-
-  <!-- Small Resume Button -->
-  <a class="resume-button" onclick="showResumePreview()">
+  <!-- Resume Button -->
+  <a class="resume-button" onclick="showFullResume()">
     <i class="fas fa-file-alt"></i>
   </a>
-
-  <!-- Resume Preview -->
-  <div id="resume-popup" class="resume-popup" onclick="expandResume()">
-    <iframe id="resume-frame" src="resume.png#toolbar=0&navpanes=0&scrollbar=0&page=1"></iframe>
-    <!-- Zoom Button -->
-    <button class="zoom-button" onclick="zoomResume(event)">🔍</button>
-    <button class="close-resume" onclick="shrinkResume(event)">✖</button>
-  </div>
 
   <!-- Full Resume on Zoom -->
   <div id="full-resume" class="full-resume">
@@ -78,7 +64,6 @@
     <button class="download-button" onclick="downloadResume()">⬇</button>
     <button class="close-full-resume" onclick="closeFullResume()">✖</button>
   </div>
-
 
   <!-- Content Section (hidden by default) -->
   <div class="section" id="about">
@@ -89,17 +74,14 @@
     <p><strong>Duration: </strong>August 2022 - May 2026</p>
     <p><strong>Institue: </strong>University of Engineerng and Technology, Taxila</p>
     <br><br>
-
     <button class="close-about" onclick="closeSections()">✖</button>
   </div>
 
-  <!-- You can add other sections like Skills or Projects, similarly -->
+  <!-- Skills Section -->
   <div class="section" id="skills">
     <h2>Skills</h2>
     <p>Here are my skills.</p>
-
     <div class="skills-section">
-
       <!-- Data Science Skills -->
       <div class="skills-box">
         <h3>Data Science</h3>
@@ -117,7 +99,6 @@
         </div>
         <div class="skill">
           <i class="fas fa-robot"></i>
-
           <div class="skill-name">Chatbots</div>
         </div>
         <div class="skill">
@@ -178,16 +159,14 @@
           <i class="fab fa-node"></i>
         </div>
       </div>
-
       <button class="close-skills" onclick="closeSections()">✖</button>
-
     </div>
   </div>
 
+  <!-- Projects Section -->
   <div class="section" id="projects">
     <h2>Projects</h2>
     <p>See my projects.</p>
-
     <!-- Filter Buttons -->
     <div class="filter-buttons">
       <button class="filter-btn" data-category="all">All</button>
@@ -200,9 +179,7 @@
 
     <!-- Projects Section -->
     <div class="projects-section">
-
       <div class="projects-box" data-category="chatbots">
-
         <!-- Left Section: Icon, Title & Description -->
         <div class="project-info">
           <h3>Text-voice Chatbot</h3>
@@ -212,205 +189,104 @@
             <i class="fa-brands fa-github"></i>
           </a>
         </div>
-
         <!-- Right Section: Video -->
         <video controls>
           <source src="project_videos\text-voice_chatbot.mp4" type="video/mp4">
-
         </video>
-
       </div>
-
-      <!-- Computer Vision Project -->
-      <!-- <div class="projects-box" data-category="computer-vision">
-        <div class="project-header">
-          <a href="https://github.com/your-github-repo" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-          <h3>Computer Vision</h3>
-        </div>
-        <video controls>
-          <source src="computer-vision-project.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div> -->
-
-      <!-- Data Analysis Project -->
-      <!-- <div class="projects-box" data-category="data-analysis">
-        <div class="project-header">
-          <a href="https://github.com/your-github-repo" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-          <h3>Data Analysis</h3>
-        </div>
-        <video controls>
-          <source src="data-analysis.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div> -->
-
-      <!-- Machine Learning Project -->
-      <!-- <div class="projects-box" data-category="machine-learning">
-        <div class="project-header">
-          <a href="https://github.com/your-github-repo" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-          <h3>Machine Learning/AI</h3>
-        </div>
-        <video controls>
-          <source src="machine-learning.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div> -->
-
-      <!-- NLP Project -->
-      <!-- <div class="projects-box" data-category="nlp">
-        <div class="project-header">
-          <a href="https://github.com/your-github-repo" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-          <h3>NLP</h3>
-        </div>
-        <video controls>
-          <source src="nlp-project.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div> -->
-
-      <!-- Close Button -->
       <button class="close-about" onclick="closeSections()">✖</button>
     </div>
+  </div>
 
+  <script>
+    function showFullResume() {
+      const fullResume = document.getElementById('full-resume');
+      fullResume.style.display = 'block';
+      document.body.style.overflow = 'hidden'; // Disable background scrolling
+    }
 
-    <script>
-      let isExpanded = false;
+    function closeFullResume() {
+      document.getElementById('full-resume').style.display = 'none';
+      document.body.style.overflow = 'auto'; // Enable scrolling again
+    }
 
-      function showResumePreview() {
-        const resumePopup = document.getElementById('resume-popup');
-        resumePopup.classList.add('visible'); // Show small preview
+    function downloadResume() {
+      const link = document.createElement('a');
+      link.href = 'resume.png';
+      link.download = 'resume.png';
+      link.click();
+    }
+
+    function toggleSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section.style.display === 'none' || section.style.display === '') {
+        section.style.display = 'block'; // Show the section
+      } else {
+        section.style.display = 'none'; // Hide the section
       }
+    }
 
-      function expandResume() {
-        const resumePopup = document.getElementById('resume-popup');
+    function closeSections() {
+      // Hide all sections when navigating to Home
+      document.getElementById('about').style.display = 'none';
+      document.getElementById('skills').style.display = 'none';
+      document.getElementById('projects').style.display = 'none';
+    }
 
-        if (!isExpanded) {
-          resumePopup.classList.add('expanded'); // Expand to center
-        } else {
-          resumePopup.classList.remove('expanded'); // Shrink back
-        }
-
-        isExpanded = !isExpanded;
-      }
-
-      function shrinkResume(event) {
-        event.stopPropagation(); // Prevent click from triggering expand
-        const resumePopup = document.getElementById('resume-popup');
-        resumePopup.classList.remove('visible'); // Hide preview
-        resumePopup.classList.remove('expanded'); // Reset expansion
-        isExpanded = false;
-      }
-
-      function zoomResume(event) {
-        event.stopPropagation(); // Prevent triggering expand
-
-        // Hide small resume
-        document.getElementById('resume-popup').classList.remove('visible');
-
-        // Show full resume
-        const fullResume = document.getElementById('full-resume');
-        fullResume.style.display = 'block';
-
-        // Disable background scrolling
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeFullResume() {
-        document.getElementById('full-resume').style.display = 'none';
-        document.body.style.overflow = 'auto'; // Enable scrolling again
-      }
-
-      function downloadResume() {
-        const link = document.createElement('a');
-        link.href = 'resume.png';
-        link.download = 'resume.png';
-        link.click();
-      }
-
-
-      function toggleSection(sectionId) {
-        const section = document.getElementById(sectionId);
-        if (section.style.display === 'none' || section.style.display === '') {
-          section.style.display = 'block'; // Show the section
-        } else {
-          section.style.display = 'none'; // Hide the section
-        }
-      }
-
-      function closeSections() {
-        // Hide all sections when navigating to Home
-        document.getElementById('about').style.display = 'none';
-        document.getElementById('skills').style.display = 'none';
-        document.getElementById('projects').style.display = 'none';
-      }
-
-
-      function goToHome() {
-        // Fade in home section
-        document.getElementById('home').classList.remove('hidden');
-
-        // Hide all other sections
-        document.querySelectorAll('section').forEach(section => {
-          section.classList.remove('active');
-        });
-      }
-
-      // Function to show corresponding section
-      function showSection(sectionId) {
-        // Hide all sections
-        const sections = document.querySelectorAll('.section');
-        sections.forEach(section => section.classList.remove('visible'));
-
-        // Show the clicked section
-        const selectedSection = document.getElementById(sectionId);
-        selectedSection.classList.add('visible');
-      }
-
-      // Menu Item Click Event Listeners
-      document.querySelectorAll('.menu-item').forEach(item => {
-        item.addEventListener('click', () => {
-          showSection(item.textContent.toLowerCase());
-        });
+    function goToHome() {
+      // Fade in home section
+      document.getElementById('home').classList.remove('hidden');
+      // Hide all other sections
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
       });
+    }
 
-      document.addEventListener("DOMContentLoaded", function () {
-        const buttons = document.querySelectorAll(".filter-btn");
-        const projects = document.querySelectorAll(".projects-box");
+    // Function to show corresponding section
+    function showSection(sectionId) {
+      // Hide all sections
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => section.classList.remove('visible'));
 
-        buttons.forEach(button => {
-          button.addEventListener("click", function () {
-            const category = this.getAttribute("data-category");
+      // Show the clicked section
+      const selectedSection = document.getElementById(sectionId);
+      selectedSection.classList.add('visible');
+    }
 
-            // Remove active class from all buttons
-            buttons.forEach(btn => btn.classList.remove("active"));
-            this.classList.add("active");
+    // Menu Item Click Event Listeners
+    document.querySelectorAll('.menu-item').forEach(item => {
+      item.addEventListener('click', () => {
+        showSection(item.textContent.toLowerCase());
+      });
+    });
 
-            // Show/hide projects based on category
-            projects.forEach(project => {
-              if (category === "all" || project.getAttribute("data-category") === category) {
-                project.style.display = "flex";
-              } else {
-                project.style.display = "none";
-              }
-            });
+    document.addEventListener("DOMContentLoaded", function () {
+      const buttons = document.querySelectorAll(".filter-btn");
+      const projects = document.querySelectorAll(".projects-box");
+
+      buttons.forEach(button => {
+        button.addEventListener("click", function () {
+          const category = this.getAttribute("data-category");
+
+          // Remove active class from all buttons
+          buttons.forEach(btn => btn.classList.remove("active"));
+          this.classList.add("active");
+
+          // Show/hide projects based on category
+          projects.forEach(project => {
+            if (category === "all" || project.getAttribute("data-category") === category) {
+              project.style.display = "flex";
+            } else {
+              project.style.display = "none";
+            }
           });
         });
-
-        // Trigger "All" category by default
-        document.querySelector(".filter-btn[data-category='all']").click();
       });
 
-    </script>
-
+      // Trigger "All" category by default
+      document.querySelector(".filter-btn[data-category='all']").click();
+    });
+  </script>
 </body>
 
 </html>
