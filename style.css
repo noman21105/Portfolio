@@ -504,8 +504,8 @@ p {
       position: fixed;
       top: 50%;
       left: 50%;
-      width: 47%;
-      height: 95%;
+      width: 80%;
+      height: 90%;
       background: rgba(0, 0, 0, 0.9);
       border-radius: 10px;
       display: none;
