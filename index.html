@@ -62,7 +62,7 @@
 
   <!-- Full Resume on Zoom -->
   <div id="full-resume" class="full-resume">
-    <iframe id="full-resume-frame" src="resume.png#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+    <iframe id="full-resume-frame" src="Resume.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
     <button class="download-button" onclick="downloadResume()">⬇</button>
     <button class="close-full-resume" onclick="closeFullResume()">✖</button>
   </div>
@@ -213,16 +213,10 @@
     }
 
     function downloadResume() {
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF();
-
-      const img = new Image();
-      img.src = 'resume.png'; // Path to your PNG resume
-      img.onload = function () {
-        // Add image to PDF (x, y, width, height)
-        doc.addImage(img, 'PNG', 10, 10, 180, 250);
-        doc.save('resume.pdf'); // Download as PDF
-      };
+      const link = document.createElement('a');
+      link.href = 'Resume.pdf';
+      link.download = 'Resume.pdf';
+      link.click();
     }
 
     function toggleSection(sectionId) {
