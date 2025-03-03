@@ -2,314 +2,345 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muhammad Noman</title>
-  <!-- FontAwesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <!-- Google Font for Signature (Freestyle Script) -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="./style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body {
+      background: url('imgs/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      /* Ensures full coverage without repetition */
+      background-attachment: fixed;
+      /* Keeps it fixed */
+      background-position: center;
+      /* Centers the image */
+      background-repeat: no-repeat;
+      /* Prevents repetition */
 
-</head>
-
-<body>
-  <div class="profile-pic">
-    <img src="imgs/profile.jpg" alt="Profile Picture" />
-  </div>
-
-  <div class="home" id="home">
-    <div class="signature">Muhammad Noman</div>
-    <div class="tagline">I am Data Scientist</div>
-  </div>
-
-  <div class="menu-button" onclick="toggleMenu()">
-    <i class="fas fa-bars"></i>
-  </div>
-
-  <div class="menu-items" id="menuItems">
-    <div class="menu-item" onclick="goToHome()">Home</div>
-    <div class="menu-item" onclick="toggleSection('about')">About</div>
-    <div class="menu-item" onclick="toggleSection('skills')">Skills</div>
-    <div class="menu-item" onclick="toggleSection('projects')">Projects</div>
-  </div>
-
-  <a class="say-hello-button"
-    href="mailto:mn1535949@example.com?subject=Hello%20Muhammad%20Noman&body=Hi%20Muhammad%20Noman,">Say Hello</a>
-
-  <div class="social-icons">
-    <a href="https://github.com/noman21105" target="_blank">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/muhammad-noman-629524250/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-      target="_blank">
-      <i class="fab fa-linkedin"></i>
-    </a>
-    <a href="https://wa.me/+923233318085" target="_blank">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-    <a href="https://x.com/yourusername" target="_blank">
-      <i class="fab fa-twitter"></i>
-    </a>
-  </div>
-
-  <!-- Resume Button -->
-  <a class="resume-button" onclick="showFullResume()">
-    <i class="fas fa-file-alt"></i>
-  </a>
-
-  <!-- Full Resume on Zoom -->
-  <div id="full-resume" class="full-resume">
-    <iframe id="full-resume-frame" src="noman_resume.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
-    <button class="download-button" onclick="downloadResume()">⬇</button>
-    <button class="close-full-resume" onclick="closeFullResume()">✖</button>
-  </div>
-
-  <!-- Content Section (hidden by default) -->
-  <div class="section" id="about">
-    <h2>About Me</h2>
-    <h3><strong>Muhammad Noman</strong></h3>
-    <h4>Data Scientist | AI & Machine Learning Expert</h4><br>
-    <p><strong>Degree: </strong> BSc. Software Engineering</p>
-    <p><strong>Duration: </strong>August 2022 - May 2026</p>
-    <p><strong>Institue: </strong>University of Engineerng and Technology, Taxila</p>
-    <br><br>
-    <button class="close-about" onclick="closeSections()">✖</button>
-  </div>
-
-  <!-- Skills Section -->
-  <div class="section" id="skills">
-    <h2>Skills</h2>
-    <p>Here are my skills.</p>
-    <div class="skills-section">
-      <!-- Data Science Skills -->
-      <div class="skills-box">
-        <h3>Data Science</h3>
-        <div class="skill">
-          <i class="fas fa-brain"></i>
-          <div class="skill-name">AI & ML</div>
-        </div>
-        <div class="skill">
-          <i class="fas fa-camera-retro"></i>
-          <div class="skill-name">CV</div>
-        </div>
-        <div class="skill">
-          <i class="fas fa-comments"></i>
-          <div class="skill-name">NLP</div>
-        </div>
-        <div class="skill">
-          <i class="fas fa-robot"></i>
-          <div class="skill-name">Chatbots</div>
-        </div>
-        <div class="skill">
-          <i class="fas fa-database"></i>
-          <div class="skill-name">Database (SQL)</div>
-        </div>
-        <div class="skill">
-          <i class="fas fa-chart-line"></i>
-          <div class="skill-name">Data Analysis</div>
-        </div>
-        <div class="skill">
-          <i class="fas fa-cogs"></i>
-          <div class="skill-name">Selenium</div>
-        </div>
-        <div class="skill">
-          <i class="fas fa-spider"></i>
-          <div class="skill-name">Web Scraping</div>
-        </div>
-        <div class="skill">
-          <i class="fas fa-chart-bar"></i>
-          <div class="skill-name">Power BI</div>
-        </div>
-        <div class="skill">
-          <i class="fas fa-pepper-hot"></i>
-          <div class="skill-name">Flask</div>
-        </div>
-      </div>
-
-      <!-- Web Development Skills -->
-      <div class="skills-box">
-        <h3>Web Development</h3>
-        <div class="skill">
-          <i class="fab fa-html5"></i>
-          <div class="skill-name">HTML</div>
-        </div>
-        <div class="skill">
-          <i class="fab fa-css3-alt"></i>
-          <div class="skill-name">CSS</div>
-        </div>
-        <div class="skill">
-          <i class="fab fa-js-square"></i>
-          <div class="skill-name">JavaScript</div>
-        </div>
-        <div class="skill">
-          <i class="fab fa-react"></i>
-          <div class="skill-name">React</div>
-        </div>
-        <div class="skill">
-          <i class="fab fa-node"></i>
-          <div class="skill-name">Node.js</div>
-        </div>
-        <div class="skill">
-          <i class="fas fa-leaf"></i>
-          <div class="skill-name">MongoDB</div>
-        </div>
-        <div class="skill">
-          <p style="font-family: 'Calibri', 'Calibri Body', sans-serif; font-size: 17px; ">EXPRESS</p>
-          <i class="fab fa-node"></i>
-        </div>
-      </div>
-      <button class="close-skills" onclick="closeSections()">✖</button>
-    </div>
-  </div>
-
-  <!-- Projects Section -->
-  <div class="section" id="projects">
-    <h2>Projects</h2>
-    <p>See my projects.</p>
-    <!-- Filter Buttons -->
-    <div class="filter-buttons">
-      <button class="filter-btn" data-category="all">All</button>
-      <button class="filter-btn" data-category="data-analysis">Data Analysis</button>
-      <button class="filter-btn" data-category="machine-learning">Machine Learning/AI</button>
-      <button class="filter-btn" data-category="computer-vision">Computer Vision</button>
-      <button class="filter-btn" data-category="nlp">NLP</button>
-      <button class="filter-btn" data-category="chatbots">Chatbots</button>
-    </div>
-
-    <!-- Projects Section -->
-    <div class="projects-section">
-
-
-      <!-- text-voice Chatbot project -->
-      <div class="projects-box" data-category="chatbots">
-        <!-- Left Section: Icon, Title & Description -->
-        <div class="project-info">
-          <h3>Text-voice Chatbot</h3>
-          <p>Developed a text-voice chatbot that takes text and voice as input and give text and voice answers in
-            output.</p>
-          <a href="https://github.com/noman21105/Chatbot_GPT.git" target="_blank">
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </div>
-        <!-- Right Section: Video -->
-        <video controls>
-          <source src="project_videos\text-voice_chatbot.mp4" type="video/mp4">
-        </video>
-      </div>
-
-
-      <div class="projects-box" data-category="data-analysis">
-        <!-- Left Section: Icon, Title & Description -->
-        <div class="project-info">
-          <h3>Hotel Bookings Analysis</h3>
-          <p>Analyze the booking ratio of a hotel and estimated and plotted every effective pattern and caused of there
-            decreasing sales. </p>
-          <a href="https://github.com/noman21105" target="_blank">
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </div>
-        <!-- Right Section: Video -->
-        <video controls>
-          <source src="project_videos\Hotel Booking dataset Analysis.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <button class="close-about" onclick="closeSections()">✖</button>
-    </div>
-  </div>
-
-  <script>
-    function showFullResume() {
-      const fullResume = document.getElementById('full-resume');
-      fullResume.style.display = 'block';
-      document.body.style.overflow = 'hidden'; // Disable background scrolling
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      position: relative;
     }
 
-    function closeFullResume() {
-      document.getElementById('full-resume').style.display = 'none';
-      document.body.style.overflow = 'auto'; // Enable scrolling again
+    /* Dark overlay for lower intensity */
+    body::before {
+      content: "";
+      position: fixed;
+      /* Ensures it covers the whole screen */
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      /* Adjust opacity */
+      z-index: -1;
     }
 
-    function downloadResume() {
-      const link = document.createElement('a');
-      link.href = 'noman_resume.pdf';
-      link.download = 'noman_resume.pdf';
-      link.click();
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      position: relative;
     }
 
-    function toggleSection(sectionId) {
-      const section = document.getElementById(sectionId);
-      if (section.style.display === 'none' || section.style.display === '') {
-        section.style.display = 'block'; // Show the section
-      } else {
-        section.style.display = 'none'; // Hide the section
+    .network {
+      display: flex;
+      align-items: center;
+      gap: 130px;
+      position: relative;
+    }
+
+    .layer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 80px;
+      position: relative;
+    }
+
+    .node {
+      width: 30px;
+      height: 30px;
+      background-color: #18c8dc;
+      border-radius: 50%;
+      opacity: 0.2;
+      transition: opacity 0.4s, transform 0.2s;
+      position: relative;
+      z-index: 0;
+      /* Ensure nodes stay above the lines */
+      box-shadow: 0 0 10px rgba(24, 200, 220, 0.5);
+      /* Initial subtle glow */
+    }
+
+    /* Add a strong glowing effect when activated */
+    .glow {
+      opacity: 1 !important;
+      transform: scale(1.4);
+      box-shadow: 0 0 20px rgba(24, 200, 220, 0.8),
+        0 0 40px rgba(24, 200, 220, 0.5),
+        0 0 60px rgba(24, 200, 220, 0.3);
+      /* Multi-layered glow */
+    }
+
+    /* Animation for continuous pulsating glow */
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 0 10px rgba(24, 200, 220, 0.5),
+          0 0 20px rgba(24, 200, 220, 0.3);
+      }
+
+      50% {
+        box-shadow: 0 0 20px rgba(24, 200, 220, 0.8),
+          0 0 40px rgba(24, 200, 220, 0.5);
+      }
+
+      100% {
+        box-shadow: 0 0 10px rgba(24, 200, 220, 0.5),
+          0 0 20px rgba(24, 200, 220, 0.3);
       }
     }
 
-    function closeSections() {
-      // Hide all sections when navigating to Home
-      document.getElementById('about').style.display = 'none';
-      document.getElementById('skills').style.display = 'none';
-      document.getElementById('projects').style.display = 'none';
+    /* Apply pulsating animation when glowing */
+    .glow {
+      animation: pulseGlow 1.5s infinite alternate;
     }
 
-    function goToHome() {
-      // Fade in home section
-      document.getElementById('home').classList.remove('hidden');
-      // Hide all other sections
-      document.querySelectorAll('section').forEach(section => {
-        section.classList.remove('active');
-      });
+
+    .line {
+      position: absolute;
+      width: 2px;
+      background-color: white;
+      transform-origin: left center;
+      opacity: 0.2;
+      transition: opacity 0.5s ease-in-out;
+      z-index: -1;
+      /* Ensure lines stay behind the nodes */
     }
 
-    // Function to show corresponding section
-    function showSection(sectionId) {
-      // Hide all sections
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => section.classList.remove('visible'));
-
-      // Show the clicked section
-      const selectedSection = document.getElementById(sectionId);
-      selectedSection.classList.add('visible');
+    .text1 {
+      position: absolute;
+      left: -115px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 1;
     }
 
-    // Menu Item Click Event Listeners
-    document.querySelectorAll('.menu-item').forEach(item => {
-      item.addEventListener('click', () => {
-        showSection(item.textContent.toLowerCase());
-      });
-    });
+    .text2 {
+      position: absolute;
+      left: -100px;
+      top: 115px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 1;
+    }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const buttons = document.querySelectorAll(".filter-btn");
-      const projects = document.querySelectorAll(".projects-box");
+    .text3 {
+      position: absolute;
+      left: -130px;
+      top: 230px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 1;
+    }
 
-      buttons.forEach(button => {
-        button.addEventListener("click", function () {
-          const category = this.getAttribute("data-category");
+    .text4 {
+      position: absolute;
+      left: -150px;
+      top: 345px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 1;
+    }
 
-          // Remove active class from all buttons
-          buttons.forEach(btn => btn.classList.remove("active"));
-          this.classList.add("active");
+    .text5 {
+      position: absolute;
+      left: -120px;
+      top: 445px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 1;
+    }
 
-          // Show/hide projects based on category
-          projects.forEach(project => {
-            if (category === "all" || project.getAttribute("data-category") === category) {
-              project.style.display = "flex";
-            } else {
-              project.style.display = "none";
-            }
+    .text6 {
+      position: absolute;
+      left: 40px;
+      top: 10px;
+      font-size: 18px;
+      white-space: nowrap;
+      opacity: 1;
+    }
+
+    #outputText {
+      font-size: 16px;
+      color: white;
+      opacity: 0;
+      animation: glow 1s infinite alternate;
+    }
+
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #18c8dc;
+      }
+
+      to {
+        text-shadow: 0 0 20px #18c8dc;
+      }
+    }
+
+    .enter-button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      border: 2px solid #18c8dc;
+      color: #18c8dc;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      transition: 0.3s;
+      opacity: 0;
+      display: inline-block;
+    }
+
+    .enter-button:hover {
+      background-color: #18c8dc;
+      color: black;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 0px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="network" id="network">
+      <!-- Input Layer -->
+      <div class="layer">
+        <div class="node" id="input1"></div>
+        <div class="text1">Why am I here?</div>
+        <div class="node" id="input2"></div>
+        <div class="text2">Who is he?</div>
+        <div class="node" id="input3"></div>
+        <div class="text3">How can he do?</div>
+        <div class="node" id="input4"></div>
+        <div class="text4">What is his passion?</div>
+        <div class="node" id="input5"></div>
+        <div class="text5">Where is he?</div>
+      </div>
+
+      <!-- Hidden Layers -->
+      <div class="layer">
+        <div class="node"></div>
+        <div class="node"></div>
+        <div class="node"></div>
+        <div class="node"></div>
+      </div>
+
+      <div class="layer">
+        <div class="node"></div>
+        <div class="node"></div>
+        <div class="node"></div>
+      </div>
+
+      <!-- Output Layer -->
+      <div class="layer">
+        <div class="node" id="output"></div>
+        <div class="text6" id="outputText">Right Place</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <a href="portfolio.html" .html" class="enter-button" id="enter-button">Enter Portfolio</a>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const layers = document.querySelectorAll(".layer");
+      const outputText = document.getElementById("outputText");
+      const button = document.getElementById("enter-button");
+
+      let delay = 300; // Delay between each layer's activation
+      let totalAnimationTime = 0; // Track the total time needed for the animation
+      let outputDisplayTime = 5000; // <<--- Set your desired time here (in milliseconds)
+
+      function glowLayer(layerIndex) {
+        const nodes = layers[layerIndex].querySelectorAll(".node");
+
+        nodes.forEach((node, i) => {
+          setTimeout(() => {
+            node.classList.add("glow");
+          }, delay);
+        });
+
+        if (layerIndex < layers.length - 1) {
+          setTimeout(() => {
+            drawConnections(layerIndex);
+          }, delay + 150);
+        }
+
+        totalAnimationTime = delay; // Track the time for the last node's animation
+        delay += 300;
+      }
+
+      function drawConnections(layerIndex) {
+        const currentNodes = layers[layerIndex].querySelectorAll(".node");
+        const nextNodes = layers[layerIndex + 1]?.querySelectorAll(".node");
+
+        if (!nextNodes) return;
+
+        nextNodes.forEach((nextNode) => {
+          currentNodes.forEach((currentNode) => {
+            const line = document.createElement("div");
+            line.classList.add("line");
+            document.body.appendChild(line);
+
+            const startX = currentNode.getBoundingClientRect().x + 10;
+            const startY = currentNode.getBoundingClientRect().y + 10;
+            const endX = nextNode.getBoundingClientRect().x + 10;
+            const endY = nextNode.getBoundingClientRect().y + 10;
+
+            const length = Math.sqrt(
+              Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2)
+            ) - 20;
+
+            line.style.width = `${length}px`;
+            line.style.height = "2px";
+            line.style.position = "absolute";
+            line.style.left = `${startX}px`;
+            line.style.top = `${startY}px`;
+            line.style.transform = `rotate(${Math.atan2(endY - startY, endX - startX) * 180 / Math.PI}deg)`;
+            line.style.opacity = "1";
+
+            document.body.appendChild(line);
           });
         });
-      });
 
-      // Trigger "All" category by default
-      document.querySelector(".filter-btn[data-category='all']").click();
+        setTimeout(() => {
+          glowLayer(layerIndex + 1);
+        }, 100);
+      }
+
+      glowLayer(0);
+
+      // Show output text and button after the set time
+      setTimeout(() => {
+        outputText.style.opacity = "1";
+        button.style.opacity = "1";
+      }, outputDisplayTime); // <<--- Adjust this value to control when "Right Place" and button appear
     });
+
+
   </script>
+
 </body>
 
 </html>

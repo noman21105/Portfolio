@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammad Noman</title>
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Google Font for Signature (Freestyle Script) -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+
+<body>
+  <div class="profile-pic">
+    <img src="imgs/profile.jpg" alt="Profile Picture" />
+  </div>
+
+  <div class="home" id="home">
+    <div class="signature">Muhammad Noman</div>
+    <div class="tagline">I am Data Scientist</div>
+  </div>
+
+  <div class="menu-button" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <div class="menu-items" id="menuItems">
+    <div class="menu-item" onclick="goToHome()">Home</div>
+    <div class="menu-item" onclick="toggleSection('about')">About</div>
+    <div class="menu-item" onclick="toggleSection('skills')">Skills</div>
+    <div class="menu-item" onclick="toggleSection('projects')">Projects</div>
+  </div>
+
+  <a class="say-hello-button"
+    href="mailto:mn1535949@example.com?subject=Hello%20Muhammad%20Noman&body=Hi%20Muhammad%20Noman,">Say Hello</a>
+
+  <div class="social-icons">
+    <a href="https://github.com/noman21105" target="_blank">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/muhammad-noman-629524250/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+      target="_blank">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://wa.me/+923233318085" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://x.com/yourusername" target="_blank">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </div>
+
+  <!-- Resume Button -->
+  <a class="resume-button" onclick="showFullResume()">
+    <i class="fas fa-file-alt"></i>
+  </a>
+
+  <!-- Full Resume on Zoom -->
+  <div id="full-resume" class="full-resume">
+    <iframe id="full-resume-frame" src="noman_resume.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+    <button class="download-button" onclick="downloadResume()">⬇</button>
+    <button class="close-full-resume" onclick="closeFullResume()">✖</button>
+  </div>
+
+  <!-- Content Section (hidden by default) -->
+  <div class="section" id="about">
+    <h2>About Me</h2>
+    <h3><strong>Muhammad Noman</strong></h3>
+    <h4>Data Scientist | AI & Machine Learning Expert</h4><br>
+    <p><strong>Degree: </strong> BSc. Software Engineering</p>
+    <p><strong>Duration: </strong>August 2022 - May 2026</p>
+    <p><strong>Institue: </strong>University of Engineerng and Technology, Taxila</p>
+    <br><br>
+    <button class="close-about" onclick="closeSections()">✖</button>
+  </div>
+
+  <!-- Skills Section -->
+  <div class="section" id="skills">
+    <h2>Skills</h2>
+    <p>Here are my skills.</p>
+    <div class="skills-section">
+      <!-- Data Science Skills -->
+      <div class="skills-box">
+        <h3>Data Science</h3>
+        <div class="skill">
+          <i class="fas fa-brain"></i>
+          <div class="skill-name">AI & ML</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-camera-retro"></i>
+          <div class="skill-name">CV</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-comments"></i>
+          <div class="skill-name">NLP</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-robot"></i>
+          <div class="skill-name">Chatbots</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-database"></i>
+          <div class="skill-name">Database (SQL)</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-chart-line"></i>
+          <div class="skill-name">Data Analysis</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-cogs"></i>
+          <div class="skill-name">Selenium</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-spider"></i>
+          <div class="skill-name">Web Scraping</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-chart-bar"></i>
+          <div class="skill-name">Power BI</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-pepper-hot"></i>
+          <div class="skill-name">Flask</div>
+        </div>
+      </div>
+
+      <!-- Web Development Skills -->
+      <div class="skills-box">
+        <h3>Web Development</h3>
+        <div class="skill">
+          <i class="fab fa-html5"></i>
+          <div class="skill-name">HTML</div>
+        </div>
+        <div class="skill">
+          <i class="fab fa-css3-alt"></i>
+          <div class="skill-name">CSS</div>
+        </div>
+        <div class="skill">
+          <i class="fab fa-js-square"></i>
+          <div class="skill-name">JavaScript</div>
+        </div>
+        <div class="skill">
+          <i class="fab fa-react"></i>
+          <div class="skill-name">React</div>
+        </div>
+        <div class="skill">
+          <i class="fab fa-node"></i>
+          <div class="skill-name">Node.js</div>
+        </div>
+        <div class="skill">
+          <i class="fas fa-leaf"></i>
+          <div class="skill-name">MongoDB</div>
+        </div>
+        <div class="skill">
+          <p style="font-family: 'Calibri', 'Calibri Body', sans-serif; font-size: 17px; ">EXPRESS</p>
+          <i class="fab fa-node"></i>
+        </div>
+      </div>
+      <button class="close-skills" onclick="closeSections()">✖</button>
+    </div>
+  </div>
+
+  <!-- Projects Section -->
+  <div class="section" id="projects">
+    <h2>Projects</h2>
+    <p>See my projects.</p>
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+      <button class="filter-btn" data-category="all">All</button>
+      <button class="filter-btn" data-category="data-analysis">Data Analysis</button>
+      <button class="filter-btn" data-category="machine-learning">Machine Learning/AI</button>
+      <button class="filter-btn" data-category="computer-vision">Computer Vision</button>
+      <button class="filter-btn" data-category="nlp">NLP</button>
+      <button class="filter-btn" data-category="chatbots">Chatbots</button>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="projects-section">
+
+
+      <!-- text-voice Chatbot project -->
+      <div class="projects-box" data-category="chatbots">
+        <!-- Left Section: Icon, Title & Description -->
+        <div class="project-info">
+          <h3>Text-voice Chatbot</h3>
+          <p>Developed a text-voice chatbot that takes text and voice as input and give text and voice answers in
+            output.</p>
+          <a href="https://github.com/noman21105/Chatbot_GPT.git" target="_blank">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+        <!-- Right Section: Video -->
+        <video controls>
+          <source src="project_videos\text-voice_chatbot.mp4" type="video/mp4">
+        </video>
+      </div>
+
+
+      <div class="projects-box" data-category="data-analysis">
+        <!-- Left Section: Icon, Title & Description -->
+        <div class="project-info">
+          <h3>Hotel Bookings Analysis</h3>
+          <p>Analyze the booking ratio of a hotel and estimated and plotted every effective pattern and caused of there
+            decreasing sales. </p>
+          <a href="https://github.com/noman21105" target="_blank">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+        <!-- Right Section: Video -->
+        <video controls>
+          <source src="project_videos\Hotel Booking dataset Analysis.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <button class="close-about" onclick="closeSections()">✖</button>
+    </div>
+  </div>
+
+  <script>
+    function showFullResume() {
+      const fullResume = document.getElementById('full-resume');
+      fullResume.style.display = 'block';
+      document.body.style.overflow = 'hidden'; // Disable background scrolling
+    }
+
+    function closeFullResume() {
+      document.getElementById('full-resume').style.display = 'none';
+      document.body.style.overflow = 'auto'; // Enable scrolling again
+    }
+
+    function downloadResume() {
+      const link = document.createElement('a');
+      link.href = 'noman_resume.pdf';
+      link.download = 'noman_resume.pdf';
+      link.click();
+    }
+
+    function toggleSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section.style.display === 'none' || section.style.display === '') {
+        section.style.display = 'block'; // Show the section
+      } else {
+        section.style.display = 'none'; // Hide the section
+      }
+    }
+
+    function closeSections() {
+      // Hide all sections when navigating to Home
+      document.getElementById('about').style.display = 'none';
+      document.getElementById('skills').style.display = 'none';
+      document.getElementById('projects').style.display = 'none';
+    }
+
+    function goToHome() {
+      // Fade in home section
+      document.getElementById('home').classList.remove('hidden');
+      // Hide all other sections
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
+      });
+    }
+
+    // Function to show corresponding section
+    function showSection(sectionId) {
+      // Hide all sections
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => section.classList.remove('visible'));
+
+      // Show the clicked section
+      const selectedSection = document.getElementById(sectionId);
+      selectedSection.classList.add('visible');
+    }
+
+    // Menu Item Click Event Listeners
+    document.querySelectorAll('.menu-item').forEach(item => {
+      item.addEventListener('click', () => {
+        showSection(item.textContent.toLowerCase());
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const buttons = document.querySelectorAll(".filter-btn");
+      const projects = document.querySelectorAll(".projects-box");
+
+      buttons.forEach(button => {
+        button.addEventListener("click", function () {
+          const category = this.getAttribute("data-category");
+
+          // Remove active class from all buttons
+          buttons.forEach(btn => btn.classList.remove("active"));
+          this.classList.add("active");
+
+          // Show/hide projects based on category
+          projects.forEach(project => {
+            if (category === "all" || project.getAttribute("data-category") === category) {
+              project.style.display = "flex";
+            } else {
+              project.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // Trigger "All" category by default
+      document.querySelector(".filter-btn[data-category='all']").click();
+    });
+  </script>
+</body>
+
+</html>
